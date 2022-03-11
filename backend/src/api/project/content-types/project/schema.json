@@ -4,7 +4,8 @@
   "info": {
     "singularName": "project",
     "pluralName": "projects",
-    "displayName": "Project"
+    "displayName": "Project",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -12,10 +13,15 @@
   "pluginOptions": {},
   "attributes": {
     "projectTitle": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "projectSlug": {
-      "type": "string"
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
     }
   }
 }

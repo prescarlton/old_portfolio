@@ -111,23 +111,6 @@
             "newTab": false,
             "text": "All testimonials"
           },
-          "logos": [
-            {
-              "id": 1,
-              "title": "Strapi",
-              "logo": null
-            },
-            {
-              "id": 2,
-              "title": "Strapi 2",
-              "logo": null
-            },
-            {
-              "id": 3,
-              "title": "Strapi 3",
-              "logo": null
-            }
-          ],
           "testimonials": [
             {
               "id": 1,
