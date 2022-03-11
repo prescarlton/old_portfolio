@@ -1,0 +1,13 @@
+@keyframes pulse {
+    from {
+        @apply bg-gray-100;
+    }
+
+    to {
+        @apply bg-blue-300;
+    }
+}
+
+.line {
+    animation: 6s linear 1s infinite alternate pulse;
+}
