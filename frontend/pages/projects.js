@@ -2,29 +2,9 @@ import { Navbar } from "../components/navbar";
 import Link from 'next/link'
 import ProjectCard from "../components/ProjectCard";
 import { ArrowRight } from "react-feather";
+import { fetchAPI } from "utils/api";
 
-let pageContent = {
-    title: 'projects (under construction)',
-    description: `I've redesigned my site a few times now, and each time this page is the primary reason. 
-        I can never settle on a layout that I actually like, but I think what I've landed on 
-        this iteration is at least somewhat decent. I'm planning on having a grid of project cards of a few of 
-        my current / favorite projects, and an archive of all my public GitHub repos. 
-        Still working on the highlighted projects, but click below to see the full archive!`
-}
-
-// temp until API is set up
-const projects = [
-    {
-        title: 'JSON Viewer',
-        repo_name: 'json-viewer',
-    },
-    {
-        title: 'Lorem Ipsum Generator',
-        repo_name: 'lorem',
-    }
-]
-
-export default function Projects() {
+export default function Projects({ projects }) {
 
     return (
         <div className='h-screen flex flex-col'>
@@ -38,8 +18,8 @@ export default function Projects() {
                     {projects.map(proj => {
                         return (
                             <ProjectCard
-                                title={proj.title}
-                                repoName={proj.repo_name}
+                                title={proj.attributes.projectTitle}
+                                repoName={proj.attributes.projectSlug}
                             />
                         )
                     })}
@@ -57,4 +37,14 @@ export default function Projects() {
             </div>
         </div>
     )
+}
+
+export async function getStaticProps() {
+    const projectListRes = await fetchAPI('/projects');
+    return {
+        props: {
+            projects: projectListRes.data
+        },
+        revalidate: 1
+    }
 }
