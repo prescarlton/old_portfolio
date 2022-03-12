@@ -35,9 +35,8 @@ export default function About({ data }) {
                         </div>
                         <ul className='flex flex-col items-end md:flex-wrap md:h-56'>
                             {data.attributes.knownLanguages.map(lang => {
-                                console.log(lang)
                                 return (
-                                    <li className='flex justify-between w-full items-center flex-row-reverse md:h-10 md:mr-4'>
+                                    <li className='flex justify-between w-full items-center flex-row-reverse md:h-10 md:mr-4' key={lang.id}>
                                         <div className='bar-bg bg-gray-100 rounded-lg h-3 w-32'>
                                             <div className={`bar-color bg-blue-500 h-3 w-${lang.experience * 4} rounded-lg`}></div>
                                         </div>
