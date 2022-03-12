@@ -44,7 +44,6 @@ export default function Home({ data }) {
 }
 
 export async function getStaticProps() {
-  // Run API calls in parallel
   const homepageRes = await fetchAPI("/homepage")
 
   return {

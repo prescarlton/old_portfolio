@@ -24,6 +24,13 @@
       "type": "component",
       "repeatable": true,
       "component": "elements.framework-blurb"
+    },
+    "bio2": {
+      "type": "text"
+    },
+    "knownLanguagesTitle": {
+      "type": "string",
+      "required": true
     }
   }
 }
