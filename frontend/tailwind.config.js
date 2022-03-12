@@ -5,6 +5,9 @@ module.exports = {
   purge: ["./components/**/*.js", "./pages/**/*.js"],
   darkMode: false, // or "media" or "class"
   theme: {
+    fontFamily: {
+      'mono': 'Source Code Pro, monospace'
+    },
     extend: {
       colors: {
         primary: colors.indigo,
