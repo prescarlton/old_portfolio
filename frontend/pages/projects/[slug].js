@@ -9,7 +9,10 @@ export default function ProjectPage({ proj }) {
             <Navbar active='projects' />
             <div className='flex flex-col flex-1 p-6 pb-12 md:px-36 items-stretch'>
                 <Header title={proj.attributes.projectTitle} />
-                <p>{proj.attributes.description}</p>
+                {proj.attributes.richDescription ?
+                    (<p>{proj.attributes.richDescription}</p>) :
+                    (<p>{proj.attributes.description}</p>)
+                }
             </div>
         </div>
     )

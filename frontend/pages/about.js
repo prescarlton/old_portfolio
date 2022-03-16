@@ -1,5 +1,6 @@
 import { Navbar } from "../components/navbar";
 import { fetchAPI } from "utils/api";
+import Header from "@/components/Header";
 
 const trails = [
     {
@@ -19,10 +20,7 @@ export default function About({ data }) {
         <div className='h-screen flex flex-col'>
             <Navbar active='about' />
             <div className='flex flex-col flex-1 p-6 pb-12 md:px-36 md:justify-center'>
-                <div className='header-container mb-3'>
-                    <h1 className='text-4xl mb-1 font-black'>{data.attributes.pageTitle}</h1>
-                    <div className='header-underline h-2 w-10 rounded-lg bg-blue-500'></div>
-                </div>
+                <Header title={data.attributes.pageTitle}/>
                 <div className='about-content'>
                     <p className='text-lg'>{data.attributes.bio}</p>
                     <p className='text-lg'>{data.attributes.bio2}</p>

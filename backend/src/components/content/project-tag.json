@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_content_project_tags",
+  "info": {
+    "displayName": "Project Tag",
+    "icon": "ad"
+  },
+  "options": {},
+  "attributes": {
+    "tag": {
+      "type": "string"
+    }
+  }
+}
