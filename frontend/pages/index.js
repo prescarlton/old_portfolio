@@ -20,8 +20,8 @@ export default function Home({ data }) {
         </div>
       </div>
 
-      <div className='px-6 my-16 md:m-0 flex flex-1 flex-col md:px-36 justify-end items-end md:items-start md:justify-center'>
-        <h1 className='text-4xl my-4'>{data.attributes.pageTitle}</h1>
+      <div className='px-6 my-12 md:mt-40 flex flex-col md:px-32 justify-end items-end md:items-start z-10'>
+        <h1 className='text-8xl mb-4 font-serif'>{data.attributes.pageTitle}</h1>
         <h3 className='text-gray-600 md:text-2xl md:w-3/5 text-right md:text-left my-1'>{data.attributes.pageSubtitle}</h3>
         <Link href='/projects'><button className='cursor-pointer bg-blue-500 py-2 px-6 rounded-md text-white hover:bg-blue-600 transition my-1'>PROJECTS</button></Link>
       </div>

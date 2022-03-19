@@ -6,7 +6,8 @@ module.exports = {
   darkMode: false, // or "media" or "class"
   theme: {
     fontFamily: {
-      'mono': 'Source Code Pro, monospace'
+      'mono': 'Source Code Pro, monospace',
+      'serif': 'Roboto Slab, monospace'
     },
     extend: {
       colors: {
