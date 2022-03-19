@@ -10,7 +10,7 @@ export default function Projects({ projects }) {
     return (
         <div className='h-screen flex flex-col'>
             <Navbar active='projects' />
-            <div className='flex flex-col flex-1 p-6 pb-12 md:px-36'>
+            <div className='flex flex-col flex-1 p-6 pb-12 md:px-28'>
                 <Header title='projects'/>
                 <div className='projects-grid flex flex-wrap'>
                     {projects.map(proj => {
@@ -20,11 +20,13 @@ export default function Projects({ projects }) {
                                 repoName={proj.attributes.slug}
                                 description={proj.attributes.description}
                                 tags={proj.attributes.tags.data}
+                                link={proj.attributes.link}
+                                repo={proj.attributes.repo}
                             />
                         )
                     })}
                     <Link href='/project-archive' target='_blank' >
-                        <div className='card w-48 h-64 flex flex-col items-center justify-center mr-4 cursor-pointer'>
+                        <div className='card w-full h-48 flex flex-col items-center justify-center mr-4 cursor-pointer'>
                             <div className="bg-blue-500 rounded-lg w-12 h-12 flex items-center justify-center mb-4">
                                 <ArrowRight className="text-white" />
                             </div>

@@ -27,6 +27,12 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::tag.tag"
+    },
+    "link": {
+      "type": "string"
+    },
+    "repo": {
+      "type": "string"
     }
   }
 }

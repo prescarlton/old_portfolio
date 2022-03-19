@@ -20,6 +20,9 @@ module.exports = {
           md: "2rem",
         },
       },
+      padding: {
+        inherit: 'inherit'
+      }
     },
     screens: {
       sm: "640px",

@@ -19,29 +19,26 @@ export default function About({ data }) {
     return (
         <div className='h-screen flex flex-col'>
             <Navbar active='about' />
-            <div className='flex flex-col flex-1 p-6 pb-12 md:px-36 md:justify-center'>
-                <Header title={data.attributes.pageTitle}/>
+            <div className='flex flex-col flex-1 p-6 pb-12 md:px-28'>
+                <Header title={data.attributes.pageTitle} />
                 <div className='about-content'>
                     <p className='text-lg'>{data.attributes.bio}</p>
                     <p className='text-lg'>{data.attributes.bio2}</p>
                 </div>
-                <div className='about-more md:flex md:flex-col'>
+                <div className='about-more md:flex md:items-start md:mt-4'>
                     <div className='software md:w-1/2'>
-                        <div className='header-container mb-3 mt-8 flex flex-col items-start font-bold md:items-start'>
-                            <h2 className='text-3xl'>{data.attributes.knownLanguagesTitle}</h2>
+                        <div className='header-container mb-3 mt-8 flex flex-col font-bold md:items-start md:mt-0'>
+                            <h2 className='text-3xl font-serif'>{data.attributes.knownLanguagesTitle}</h2>
                             <div className='header-underline h-1 w-6 rounded-lg bg-blue-500'></div>
                         </div>
-                        <ul className='flex flex-col items-end md:flex-wrap md:h-56'>
+                        <ul className='flex flex-wrap md:items-start md:flex-wrap md:h-56'>
                             {data.attributes.knownLanguages.map(lang => {
                                 return (
-                                    <li className='flex justify-between w-full items-center flex-row-reverse md:h-10 md:mr-4' key={lang.id}>
-                                        <div className='bar-bg bg-gray-100 rounded-lg h-3 w-32'>
-                                            <div className={`bar-color bg-blue-500 h-3 w-${lang.experience * 4} rounded-lg`}></div>
-                                        </div>
-                                        <div className='language wrap md:flex md:items-center'>
-                                            <p className='font-medium'>{lang.title}</p>
+                                    <li className='flex w-1/2 items-center md:h-auto' key={lang.id}>
+                                        <div className='language wrap md:flex md:flex-col'>
+                                            <p className='font-bold'>{lang.title}</p>
                                             {lang.usecase && (
-                                                <p className='hidden md:block font-light text-gray-500 md:ml-4 flex-1'>{lang.usecase}</p>
+                                                <p className='hidden md:block font-light text-gray-500 flex-1'>{lang.usecase}</p>
                                             )}
                                         </div>
                                     </li>
@@ -50,9 +47,9 @@ export default function About({ data }) {
                             )}
                         </ul>
                     </div>
-                    <div className='trails md:w-full'>
+                    <div className='trails md:w-1/2'>
                         <div className='header-container mb-3 mt-8 flex flex-col items-start font-bold md:mt-0'>
-                            <h2 className='text-3xl'>recent hikes</h2>
+                            <h2 className='text-3xl font-serif'>recent hikes</h2>
                             <div className='header-underline h-1 w-6 rounded-lg bg-blue-500'></div>
                         </div>
                         <ul className='flex flex-col items-end md:w-full md:flex-row md:flex-wrap'>
@@ -85,7 +82,7 @@ export async function getStaticProps() {
     // unless told otherwise, strapi only returns the top level of data.
     // to get the list of known languages and hikes, we need to give it the 
     // populate: * parameter to tell it to populate ALL data for the request
-    const aboutpageRes = await fetchAPI('/about', {populate: '*'});
+    const aboutpageRes = await fetchAPI('/about', { populate: '*' });
     return {
         props: {
             data: aboutpageRes.data,
