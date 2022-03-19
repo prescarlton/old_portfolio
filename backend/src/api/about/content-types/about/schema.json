@@ -1,0 +1,36 @@
+{
+  "kind": "singleType",
+  "collectionName": "abouts",
+  "info": {
+    "singularName": "about",
+    "pluralName": "abouts",
+    "displayName": "About",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "pageTitle": {
+      "type": "string",
+      "required": true
+    },
+    "bio": {
+      "type": "text",
+      "required": true
+    },
+    "knownLanguages": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.framework-blurb"
+    },
+    "bio2": {
+      "type": "text"
+    },
+    "knownLanguagesTitle": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

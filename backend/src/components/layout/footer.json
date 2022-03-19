@@ -15,11 +15,6 @@
       "multiple": false,
       "required": false
     },
-    "columns": {
-      "type": "component",
-      "repeatable": true,
-      "component": "elements.footer-section"
-    },
     "smallText": {
       "type": "string"
     }

@@ -1,58 +1,6 @@
 import { Navbar } from "../components/navbar";
-import Link from 'next/link'
-
-const stuff = [
-    {
-        name: 'React.js',
-        uses: 'This site, interactive kiosks',
-        level: 6
-    },
-    {
-        name: 'Node.js',
-        uses: 'Conference Room Tool',
-        level: 5
-    },
-    {
-        name: 'jQuery',
-        uses: 'Large data-driven websites',
-        level: 6
-    },
-    {
-        name: 'Python',
-        uses: 'Web scraping, Django APIs',
-        level: 6
-    },
-    {
-        name: 'Git',
-        uses: null,
-        level: 5
-    },
-    {
-        name: 'Vue.js',
-        uses: 'SPAs, proof-of-concepts at work',
-        level: 4
-    },
-    {
-        name: 'ES6+ JavaScript',
-        uses: null,
-        level: 6
-    },
-    {
-        name: 'HTML/CSS',
-        uses: null,
-        level: 7
-    },
-    {
-        name: 'Sass',
-        uses: null,
-        level: 4
-    },
-    {
-        name: 'tailwindcss',
-        uses: 'This site was built using only tailwind',
-        level: 2
-    },
-]
+import { fetchAPI } from "utils/api";
+import Header from "@/components/Header";
 
 const trails = [
     {
@@ -67,37 +15,30 @@ const trails = [
     }
 ]
 
-export default function About() {
+export default function About({ data }) {
     return (
         <div className='h-screen flex flex-col'>
             <Navbar active='about' />
-            <div className='flex flex-col flex-1 p-6 pb-12 md:px-36 md:justify-center'>
-                <div className='header-container mb-3'>
-                    <h1 className='text-4xl mb-1 font-black'>about me</h1>
-                    <div className='header-underline h-2 w-10 rounded-lg bg-blue-500'></div>
-                </div>
+            <div className='flex flex-col flex-1 p-6 pb-12 md:px-28'>
+                <Header title={data.attributes.pageTitle} />
                 <div className='about-content'>
-                    <p className='text-lg'>Hey! I'm a junior software dev from Charleston, SC that loves learning new
-                        software and technologies. I started teaching myself web development when I was in 4th grade (around 12 years ago), and have gotten into a ton of different things since then. I've been fortunate enough to work on everything from large-scale installations like St. Louis Aquarium to government websites.</p>
-                    <p className='text-lg'>I do a good deal of development outside of work, and you can check out some of what I'm up to on the <Link href='/projects'><span className='text-blue-500 cursor-pointer'>Projects page.</span></Link> When I'm not working on one of my pet projects, I spend a lot of time in the woods hiking, camping, and backpacking.</p>
+                    <p className='text-lg'>{data.attributes.bio}</p>
+                    <p className='text-lg'>{data.attributes.bio2}</p>
                 </div>
-                <div className='about-more md:flex md:flex-col'>
+                <div className='about-more md:flex md:items-start md:mt-4'>
                     <div className='software md:w-1/2'>
-                        <div className='header-container mb-3 mt-8 flex flex-col items-start font-bold md:items-start'>
-                            <h2 className='text-3xl'>software i use</h2>
+                        <div className='header-container mb-3 mt-8 flex flex-col font-bold md:items-start md:mt-0'>
+                            <h2 className='text-3xl font-serif'>{data.attributes.knownLanguagesTitle}</h2>
                             <div className='header-underline h-1 w-6 rounded-lg bg-blue-500'></div>
                         </div>
-                        <ul className='flex flex-col items-end md:flex-wrap md:h-56'>
-                            {stuff.map(item => {
+                        <ul className='flex flex-wrap md:items-start md:flex-wrap md:h-56'>
+                            {data.attributes.knownLanguages.map(lang => {
                                 return (
-                                    <li className='flex justify-between w-full items-center flex-row-reverse md:h-10 md:mr-4'>
-                                        <div className='bar-bg bg-gray-100 rounded-lg h-3 w-32'>
-                                            <div className={`bar-color bg-blue-500 h-3 w-${item.level * 4} rounded-lg`}></div>
-                                        </div>
-                                        <div className='language wrap md:flex md:items-center'>
-                                            <p className='font-medium'>{item.name}</p>
-                                            {item.uses && (
-                                                <p className='hidden md:block font-light text-gray-500 md:ml-4 flex-1'>{item.uses}</p>
+                                    <li className='flex w-1/2 items-center md:h-auto' key={lang.id}>
+                                        <div className='language wrap md:flex md:flex-col'>
+                                            <p className='font-bold'>{lang.title}</p>
+                                            {lang.usecase && (
+                                                <p className='hidden md:block font-light text-gray-500 flex-1'>{lang.usecase}</p>
                                             )}
                                         </div>
                                     </li>
@@ -106,9 +47,9 @@ export default function About() {
                             )}
                         </ul>
                     </div>
-                    <div className='trails md:w-full'>
+                    <div className='trails md:w-1/2'>
                         <div className='header-container mb-3 mt-8 flex flex-col items-start font-bold md:mt-0'>
-                            <h2 className='text-3xl'>recent hikes</h2>
+                            <h2 className='text-3xl font-serif'>recent hikes</h2>
                             <div className='header-underline h-1 w-6 rounded-lg bg-blue-500'></div>
                         </div>
                         <ul className='flex flex-col items-end md:w-full md:flex-row md:flex-wrap'>
@@ -135,4 +76,17 @@ export default function About() {
             </div>
         </div>
     )
+}
+
+export async function getStaticProps() {
+    // unless told otherwise, strapi only returns the top level of data.
+    // to get the list of known languages and hikes, we need to give it the 
+    // populate: * parameter to tell it to populate ALL data for the request
+    const aboutpageRes = await fetchAPI('/about', { populate: '*' });
+    return {
+        props: {
+            data: aboutpageRes.data,
+        },
+        revalidate: 1
+    }
 }

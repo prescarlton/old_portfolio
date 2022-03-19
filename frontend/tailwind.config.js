@@ -5,6 +5,10 @@ module.exports = {
   purge: ["./components/**/*.js", "./pages/**/*.js"],
   darkMode: false, // or "media" or "class"
   theme: {
+    fontFamily: {
+      'mono': 'Source Code Pro, monospace',
+      'serif': 'Roboto Slab, monospace'
+    },
     extend: {
       colors: {
         primary: colors.indigo,
@@ -16,6 +20,9 @@ module.exports = {
           md: "2rem",
         },
       },
+      padding: {
+        inherit: 'inherit'
+      }
     },
     screens: {
       sm: "640px",

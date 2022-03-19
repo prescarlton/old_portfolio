@@ -39,14 +39,14 @@ export const Navbar = ({ active }) => {
                     </li>
                 </Link>
             </ul>
-            <div className='md:hidden absolute top-0 right-0 p-6 z-10' onClick={() => toggleNav()}>
+            <div className='md:hidden absolute top-0 right-0 p-6 z-30 cursor-pointer' onClick={() => toggleNav()}>
                 {showNav ? (<X />) : <Menu />}
             </div>
-            <div className={`${showNav ? 'flex' : 'hidden'} flex-1 flex-col absolute h-screen bg-white items-end top-0 bottom-0 right-0 left-0 text-right p-6`}>
+            <div className={`${showNav ? 'flex' : 'hidden'} flex-1 flex-col absolute h-screen bg-white items-end top-0 bottom-0 right-0 left-0 text-right p-6 z-20`}>
                 <div className='nav my-24'>
                     <h1 className={`text-3xl my-3 ${active == 'home' && 'text-blue-500'}`}><Link href='/'>home</Link></h1>
-                    <h1 className={`text-3xl my-3 ${active == 'projects' && 'text-blue-500'}`}><Link href='/projects'>projects</Link></h1>
                     <h1 className={`text-3xl my-3 ${active == 'about' && 'text-blue-500'}`}><Link href='/about'>about</Link></h1>
+                    <h1 className={`text-3xl my-3 ${active == 'projects' && 'text-blue-500'}`}><Link href='/projects'>projects</Link></h1>
                 </div>
                 <div>
                     <h1 className='text-3xl my-3'>social media</h1>

@@ -13,10 +13,12 @@
   "pluginOptions": {},
   "attributes": {
     "pageTitle": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "pageSubtitle": {
-      "type": "text"
+      "type": "text",
+      "required": true
     }
   }
 }

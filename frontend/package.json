@@ -27,6 +27,7 @@
     "react-feather": "^2.0.9",
     "react-icons": "^3.10.0",
     "react-markdown": "^6.0.2",
+    "swr": "^1.2.2",
     "tailwindcss": "^2.2.6",
     "yup": "^0.32.8"
   },
