@@ -6,12 +6,13 @@
     "@strapi/strapi": "4.1.3",
     "lodash.set": "^4.3.2",
     "pg": "^8.7.3",
-    "sqlite3": "5.0.2"
+    "sqlite3": "5.0.2",
+    "strapi-provider-upload-do": "^3.6.6"
   },
-  "name": "backend",
+  "name": "portfolio-backend",
   "private": true,
-  "version": "0.1.0",
-  "description": "A Strapi application",
+  "version": "1.0.0",
+  "description": "Backend for Preston Carlton's portfolio site",
   "scripts": {
     "develop": "strapi develop",
     "start": "strapi start",
@@ -19,7 +20,7 @@
     "strapi": "strapi"
   },
   "author": {
-    "name": "A Strapi developer"
+    "name": "Preston Carlton"
   },
   "strapi": {
     "uuid": "87e5fc3c-74a7-46a8-999b-53e9cf221db5",

@@ -1,6 +1,6 @@
 {
-  "name": "my-next-corporate",
-  "version": "1.0.4",
+  "name": "frontend-portfolio",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next",

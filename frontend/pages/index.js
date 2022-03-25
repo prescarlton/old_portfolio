@@ -23,7 +23,7 @@ export default function Home({ data }) {
       <div className='px-6 my-12 md:mt-40 flex flex-col md:px-32 justify-end items-start z-10'>
         <h1 className='text-6xl md:text-8xl mb-4 font-serif'>{data.attributes.pageTitle}</h1>
         <h3 className='text-gray-600 text-2xl md:w-3/5 my-1'>{data.attributes.pageSubtitle}</h3>
-        <Link href='/projects'><button className='cursor-pointer bg-blue-500 py-2 px-6 rounded-md text-white hover:bg-blue-600 transition my-1'>PROJECTS</button></Link>
+        <Link href='/projects' passHref><button className='cursor-pointer bg-blue-500 py-2 px-6 rounded-md text-white hover:bg-blue-600 transition my-1'>PROJECTS</button></Link>
       </div>
       <div className='absolute bottom-32 right-0 flex flex-col items-end'>
         <div className='flex my-2'>
@@ -50,6 +50,5 @@ export async function getStaticProps() {
     props: {
       data: homepageRes.data,
     },
-    revalidate: 1,
   };
 }
