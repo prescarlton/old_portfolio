@@ -48,6 +48,7 @@ export async function getStaticProps() {
     return {
         props: {
             projects: projectListRes.data
-        }
+        },
+        revalidate: 10
     }
 }

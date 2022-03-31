@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { useState } from 'react'
-import { Instagram, Linkedin, Menu, X } from 'react-feather';
+import { Instagram, Linkedin, Menu, X, GitHub } from 'react-feather';
 
 export const Navbar = ({ active }) => {
     const [showNav, setShowNav] = useState(false);
@@ -53,6 +53,7 @@ export const Navbar = ({ active }) => {
                     <div className='socials flex justify-end'>
                         <a href='https://www.instagram.com/prescarlton/' target="_blank" rel="noreferrer"><Instagram className='ml-4 hover:text-blue-500'/></a>
                         <a href='https://www.linkedin.com/in/preston-carlton-03059518b/' target='_blank' rel="noreferrer"><Linkedin className='ml-4 hover:text-blue-500'/></a>
+                        <a href='https://www.github.com/prescarlton' target="_blank" rel='noreferrer'><GitHub className='ml-4 hover:text-blue-500'/></a>
                     </div>
                 </div>
             </div>
