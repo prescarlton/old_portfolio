@@ -38,6 +38,6 @@ export async function getStaticProps({ params }) {
         props: {
             proj: projectPageRes.data[0]
         },
-        revalidate: 1
+        revalidate: 10
     }
 }
