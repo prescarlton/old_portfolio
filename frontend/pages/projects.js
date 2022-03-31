@@ -16,6 +16,7 @@ export default function Projects({ projects }) {
                     {projects.map(proj => {
                         return (
                             <ProjectCard
+                                key={proj.attributes.slug}
                                 title={proj.attributes.projectTitle}
                                 repoName={proj.attributes.slug}
                                 description={proj.attributes.description}
@@ -25,7 +26,7 @@ export default function Projects({ projects }) {
                             />
                         )
                     })}
-                    <Link href='/project-archive' target='_blank' >
+                    <Link href='/project-archive' target='_blank' passHref>
                         <div className='card w-full h-48 flex flex-col items-center justify-center mr-4 cursor-pointer'>
                             <div className="bg-blue-500 rounded-lg w-12 h-12 flex items-center justify-center mb-4">
                                 <ArrowRight className="text-white" />
@@ -48,6 +49,6 @@ export async function getStaticProps() {
         props: {
             projects: projectListRes.data
         },
-        revalidate: 1
+        revalidate: 10
     }
 }

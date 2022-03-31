@@ -55,7 +55,7 @@ export default function About({ data }) {
                         <ul className='flex flex-col items-end md:w-full md:flex-row md:flex-wrap'>
                             {trails.map(trail => {
                                 return (
-                                    <li className='flex justify-between w-full items-start flex-col mb-3 md:w-64 md:mr-3 border-2 border-gray-200 rounded-lg p-6'>
+                                    <li key={trail.name} className='flex justify-between w-full items-start flex-col mb-3 md:w-64 md:mr-3 border-2 border-gray-200 rounded-lg p-6'>
                                         <div className='trail-head flex items-center '>
                                             <h3 className='font-medium text-xl mr-1'>{trail.name}</h3>
                                             &middot;
@@ -87,6 +87,6 @@ export async function getStaticProps() {
         props: {
             data: aboutpageRes.data,
         },
-        revalidate: 1
+        revalidate: 10
     }
 }
