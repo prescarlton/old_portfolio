@@ -1,18 +1,14 @@
-import { Navbar } from "../components/navbar";
 import Link from 'next/link'
 import ProjectCard from "../components/ProjectCard";
 import { ArrowRight } from "react-feather";
 import { fetchAPI } from "utils/api";
-import Header from "@/components/Header";
+import Layout from "@/components/Layout";
 
 export default function Projects({ projects }) {
 
     return (
-        <div className='h-screen flex flex-col'>
-            <Navbar active='projects' />
-            <div className='flex flex-col flex-1 p-6 pb-12 md:px-28'>
-                <Header title='projects'/>
-                <div className='projects-grid flex flex-wrap'>
+        <Layout pageTitle='projects'>
+                <div className='projects-grid flex items-stretch flex-col lg:flex-row lg:flex-wrap '>
                     {projects.map(proj => {
                         return (
                             <ProjectCard
@@ -37,8 +33,7 @@ export default function Projects({ projects }) {
                         </div>
                     </Link>
                 </div>
-            </div>
-        </div>
+        </Layout>
     )
 }
 
