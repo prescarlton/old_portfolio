@@ -5,15 +5,15 @@ import { fetchAPI } from "utils/api";
 
 export default function Home({ data }) {
     const [showNav, setShowNav] = useState(false);
-    const toggleNadv = () => {
+    const toggleNav = () => {
         setShowNav(!showNav);
     };
     return (
-        <div className="flex flex-col">
+        <div className="flex flex-col md:h-screen">
             <Navbar
                 active="home"
                 showFullNav={showNav}
-                handleNavToggle={toggleNadv}
+                handleNavToggle={toggleNav}
             />
             <div className="hidden lines absolute top-48 lg:block">
                 <div className="flex my-2">
@@ -30,7 +30,7 @@ export default function Home({ data }) {
                 </div>
             </div>
 
-            <div className="px-6 my-12 md:mt-40 flex flex-col md:px-32 justify-end items-start z-10">
+            <div className="px-6 my-12 flex flex-col md:px-32 justify-center items-start z-10 md:h-100 flex-grow">
                 <h1 className="text-6xl md:text-8xl mb-4 font-serif">
                     {data.attributes.pageTitle}
                 </h1>
